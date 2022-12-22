@@ -396,7 +396,17 @@ header {
     .splide__arrows {
       display: none;
     }
-  }
+
+    .button {
+      display: flex;
+      button {
+        @extend %buttons;
+        width: 150px;
+        margin: 0 auto;
+      }
+    }
+
+}
 
 .splide:not(.is-overflow) .splide__list {
   justify-content: center;
@@ -410,9 +420,7 @@ header {
   .T-sec .contaner .box {
     max-width: 300px;
     margin-right: 58px;
-  }
-  .T-sec .contaner .splide__pagination {
-    display: flex !important;
+    height: 210px;
   }
   .splide__arrows {
     display: none !important;
@@ -442,3 +450,235 @@ header {
   background: $buttons !important;
   transform: unset !important;
 }
+
+
+.Fu-sec {
+  background-color: $buttons;
+
+  position: relative;
+  height: 250px;
+  display: flex;
+  overflow: hidden;
+
+  .contaner {
+    @extend %sectionHandeler;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 3em;
+    align-items: center;
+
+    h1 {
+      color: white;
+      font-size: 2.5em;
+      font-weight: 500;
+    }
+
+    button {
+      width: calc(100% / 3.5);
+      justify-self: end;
+      height: 50px;
+      border-radius: 50px;
+      border: none;
+      outline: none;
+      color: $buttons;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  .imgs {
+    position: absolute;
+
+    img {
+      position: absolute;
+      opacity: .1;
+    }
+
+    .right {
+      width: 600px;
+      top: -50px;
+      left: 100px;
+    }
+
+    .left {
+      width: 400px;
+      top: -250px;
+      left: 1200px;
+    }
+  }
+}
+
+
+footer {
+  background-color: #1e1e26;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+
+  .section {
+    @extend %sectionHandeler;
+
+    margin-top:0;
+    margin-bottom:0;
+    padding: 70px 0px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .icons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 120px;
+
+      .social {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        cursor: pointer;
+
+        img:hover {
+          filter: invert(54%) sepia(28%) saturate(6865%) hue-rotate(338deg) brightness(98%) contrast(94%);;
+        }
+      }
+    }
+  }
+
+  .ul {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    li:not(:last-child) {
+      margin-bottom: 1em;
+    }
+    li {
+
+
+      &:hover {
+        cursor: pointer;
+        font-weight: 100 !important;
+        color: $buttons;
+      }
+    }
+
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    
+    span {
+      position: absolute;
+      left: 16px;
+      bottom: 0px;
+      font-size: 11px;
+      color: hsla(0, 100%, 57.5%, 0.97);
+    }
+
+    .input {
+      position: relative;
+      height: fit-content;
+      transition: 0s !important;
+    }
+
+    input {
+      height: 45px;
+      border-radius: 50px;
+      width: 200px;
+      padding: 15px;
+      border: none;
+      outline: none;
+      margin-right: 1em;
+      font-size: 11px;
+      z-index: 1;
+      position: relative;
+    }
+
+
+    button {
+      width: 70px;
+      height: 45px;
+      border-radius: 20px;
+      border: none;
+      @extend %buttons;
+      box-shadow: none;
+    }
+  }
+
+  .R {
+    position: absolute;
+    right: 90px;
+    bottom: 60px;
+    font-size: 13px;
+  }
+}
+
+.alert-show {
+  bottom: -18px !important;
+}
+
+@include breakPoint(mobile) {
+  .Fu-sec {
+    height: fit-content;
+    .contaner {
+      text-align: center;
+      grid-template-columns: unset;
+      grid-template-rows: repeat(2, 1fr);
+      gap: 0em !important;
+      
+      h1 {
+        font-size: 2.1em;
+      }
+
+      button {
+        width: 100px;
+        margin: 0 auto;
+      }
+  }}
+
+  footer {
+    height: fit-content;
+    .section {
+      grid-template-columns: unset;
+      grid-template-areas: "form form"
+                            "ul2 ul1"
+                            "icons icons";
+      gap: 3em;
+      justify-content: center;
+
+      .icons {
+        grid-area: icons;
+        flex-direction: column-reverse;
+        .social {
+          width: 90%;
+          img {
+            width: 30px;
+          }
+        }
+      }
+      .ul:nth-child(1) {
+        grid-area: ul1;
+        align-self: start;
+      }
+      .ul:nth-child(2) {
+        grid-area: ul2;
+      }
+      .form {
+        grid-area: form;
+      }
+
+      .R {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+      }
+    }
+  }
+} 
