@@ -1,0 +1,17 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *::after, *::before{
+  box-sizing: border-box;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  transition: .5s;
+  scroll-behavior: smooth;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  overflow-x: hidden;
+}
