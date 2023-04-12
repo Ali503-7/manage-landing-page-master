@@ -1,17 +1,17 @@
-// allthe used colors
-@use './colors/Allcolors' as *;
+// all the used colors
+@use "./colors/Allcolors" as *;
 
-// typography 
-@use './globals/boilerplate' as *;
+// typography
+@use "./globals/boilerplate" as *;
 
 // reseters
-@use './globals/typography' as *;
+@use "./globals/typography" as *;
 
 // my Mixins
-@use './helpers/mixin/mixins' as *;
+@use "./helpers/mixin/mixins" as *;
 
 // Animations
-@use './keyFrames/KeyFrams' as *;
+@use "./keyFrames/KeyFrams" as *;
 
 %sectionHandeler {
   max-width: 1200px;
@@ -31,19 +31,19 @@
   cursor: pointer;
 
   &:hover {
-    opacity: .6;
+    opacity: 0.6;
     box-shadow: none;
   }
 }
 
 %main-head {
   h1 {
-      font-size: 3.1em;
-    }
-  
-    p {
-      width: 70%;
-    }
+    font-size: 3.1em;
+  }
+
+  p {
+    width: 70%;
+  }
 }
 
 .BG_img {
@@ -57,12 +57,14 @@
 header {
   .contaner {
     @extend %sectionHandeler;
+    margin: 40px auto !important;
 
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 1em;
     align-items: center;
     width: 100%;
+    margin-top: 30px;
 
     ul {
       display: grid;
@@ -86,12 +88,11 @@ header {
           bottom: -3px;
           background-color: $buttons;
           left: 0;
-          transition: .3s ease-in;
+          transition: 0.3s ease-in;
           transform: scaleX(0);
         }
 
         &:hover {
-
           &::before {
             transform: scaleX(1);
             opacity: 1;
@@ -108,8 +109,8 @@ header {
     .header-mobile {
       display: none;
 
-
-      .close ,.open {
+      .close,
+      .open {
         cursor: pointer;
       }
       .close {
@@ -118,7 +119,6 @@ header {
 
       .nav {
         display: none;
-        
       }
 
       ul {
@@ -129,15 +129,12 @@ header {
         background-color: white;
         width: 80%;
         padding: 30px;
-        box-shadow: 
-          rgba(0, 0, 0, 0.25) 0px 54px 55px,
-          rgba(0, 0, 0, 0.12) 0px -12px 30px,
-          rgba(0, 0, 0, 0.12) 0px 4px 6px,
-          rgba(0, 0, 0, 0.17) 0px 100px 130px,
-          rgba(0, 0, 0, 0.09) 0px -3px 5px;
-          color: black;
-          font-size: large;
-          font-weight: bold;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 100px 130px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        color: black;
+        font-size: large;
+        font-weight: bold;
 
         display: flex;
         justify-content: center;
@@ -151,21 +148,19 @@ header {
   }
 }
 
-
 @include breakPoint(mobile) {
   .BG_img {
     width: 400px;
     top: -20px;
     right: -100px;
-  } 
+  }
 
   .header-mobile {
     display: block !important;
-
   }
 
   header .contaner {
-    grid-template-columns:  1fr auto;
+    grid-template-columns: 1fr auto;
 
     .disctop-nav {
       display: none;
@@ -178,13 +173,13 @@ header {
 }
 
 .F-sec {
-  .contaner{
+  .contaner {
     @extend %sectionHandeler;
-    
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    
+
     .text {
       height: 80%;
       width: 100%;
@@ -205,11 +200,9 @@ header {
       width: 600px;
     }
   }
-
 }
 
 @include breakPoint(mobile) {
-
   .F-sec {
     .contaner {
       grid-template-columns: unset;
@@ -240,13 +233,10 @@ header {
       }
     }
   }
-
 }
-
 
 .S-sec {
   @extend %sectionHandeler;
-  
 
   .contaner {
     display: grid;
@@ -255,7 +245,11 @@ header {
 
     .left {
       @extend %main-head;
-      
+      transform: translateX(-150%);
+      &.show {
+        transform: translateX(0%) !important;
+      }
+
       h1 {
         font-size: 2.5em !important;
         margin-bottom: 1em;
@@ -265,6 +259,10 @@ header {
     .right {
       display: grid;
       gap: 3em;
+      transform: translateX(150%);
+      &.show {
+        transform: translateX(0%) !important;
+      }
 
       .box {
         display: grid;
@@ -280,7 +278,6 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
-          
         }
 
         .S-text {
@@ -293,20 +290,19 @@ header {
       }
     }
   }
-
 }
 
 @include breakPoint(mobile) {
-  .S-sec{  
-    .contaner{
+  .S-sec {
+    .contaner {
       grid-template-columns: unset;
       grid-template-rows: auto auto;
       margin-top: 100px;
 
-      .left{
+      .left {
         text-align: center;
 
-        p{
+        p {
           width: 100%;
         }
       }
@@ -317,18 +313,15 @@ header {
         }
         p {
           width: 145%;
-            position: relative;
-            left: -85px;
+          position: relative;
+          left: -85px;
         }
       }
     }
   }
-
 }
 
-
 .T-sec {
-  
   margin: 50px 0px;
   h1 {
     text-align: center;
@@ -337,75 +330,67 @@ header {
     font-size: 2.5em;
   }
   .contaner {
-
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 3em;
-
 
     .splide__track {
       overflow: unset;
       padding-left: 20.5rem !important;
     }
-    
 
     .splide__list {
       transform: translateX(-378.583px);
     }
-    
-    .splide__pagination{
+
+    .splide__pagination {
       display: none !important;
     }
 
+    .box {
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      gap: 0.5em;
+      background-color: $box-BG;
+      max-width: 500px;
+      align-content: center;
+      justify-items: center;
+      margin-left: 37px;
+      margin-right: 40px;
+      height: 200px;
+      padding: 20px;
+      border-radius: 15px;
 
-      .box {
-        display: grid;
-        grid-template-rows: repeat(3, auto);
-        gap: .5em;
-        background-color: $box-BG;
-        max-width: 500px;
-        align-content: center;
-        justify-items: center;
-        margin-left: 37px;
-        margin-right: 40px;
-        height: 200px;
-        padding: 20px;
-        border-radius: 15px;
+      img {
+        top: -65%;
+        position: relative;
+        width: 70px;
+      }
 
+      h5 {
+        font-size: 16px;
+        font-weight: 500;
+        color: $headers;
+      }
 
-        img {
-          top: -65%;
-          position: relative;
-          width: 70px;
-          
-        }
-
-        h5 {
-          font-size: 16px;
-          font-weight: 500;
-          color: $headers;
-        }
-
-        p {
-          text-align: center;
-          font-size: 15px;
-        }
-
+      p {
+        text-align: center;
+        font-size: 15px;
       }
     }
-    .splide__arrows {
-      display: none;
-    }
+  }
+  .splide__arrows {
+    display: none;
+  }
 
-    .button {
-      display: flex;
-      button {
-        @extend %buttons;
-        width: 150px;
-        margin: 0 auto;
-      }
+  .button {
+    display: flex;
+    button {
+      @extend %buttons;
+      width: 150px;
+      margin: 0 auto;
     }
-
+  }
 }
 
 .splide:not(.is-overflow) .splide__list {
@@ -414,7 +399,6 @@ header {
 .splide:not(.is-overflow) .splide__slide:last-child {
   margin: 0 !important;
 }
-
 
 @include breakPoint(mobile) {
   .T-sec .contaner .box {
@@ -434,7 +418,7 @@ header {
     width: unset !important;
   }
   .T-sec .contaner .splide__list {
-      transform: translateX(-1698.5px);
+    transform: translateX(-1698.5px);
   }
   .T-sec .contaner .box img {
     top: -37%;
@@ -450,7 +434,6 @@ header {
   background: $buttons !important;
   transform: unset !important;
 }
-
 
 .Fu-sec {
   background-color: $buttons;
@@ -469,24 +452,37 @@ header {
     gap: 3em;
     align-items: center;
 
-    h1 {
-      color: white;
-      font-size: 2.5em;
-      font-weight: 500;
+    .h1 {
+      h1 {
+        color: white;
+        font-size: 2.5em;
+        font-weight: 500;
+      }
+      transform: translateY(-250%);
+      &.show {
+        transform: translateY(0%) !important;
+      }
     }
 
-    button {
-      width: calc(100% / 3.5);
-      justify-self: end;
-      height: 50px;
-      border-radius: 50px;
-      border: none;
-      outline: none;
-      color: $buttons;
-      font-weight: 600;
-      cursor: pointer;
+    .button {
+      margin-left: 50%;
+      button {
+        width: 150px;
+        justify-self: end;
+        height: 50px;
+        border-radius: 50px;
+        border: none;
+        outline: none;
+        color: $buttons;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      transform: translateY(300%);
+      &.show {
+        transform: translateY(0%) !important;
+      }
       &:hover {
-        opacity: .7;
+        opacity: 0.7;
       }
     }
   }
@@ -496,7 +492,7 @@ header {
 
     img {
       position: absolute;
-      opacity: .1;
+      opacity: 0.1;
     }
 
     .right {
@@ -513,7 +509,6 @@ header {
   }
 }
 
-
 footer {
   background-color: #1e1e26;
   height: 260px;
@@ -523,8 +518,8 @@ footer {
   .section {
     @extend %sectionHandeler;
 
-    margin-top:0;
-    margin-bottom:0;
+    margin-top: 0;
+    margin-bottom: 0;
     padding: 70px 0px;
 
     display: grid;
@@ -536,6 +531,10 @@ footer {
       justify-content: space-between;
       align-items: center;
       height: 120px;
+      transform: translateX(-100%);
+      &.show {
+        transform: translateX(0%) !important;
+      }
 
       .social {
         display: flex;
@@ -544,35 +543,48 @@ footer {
         cursor: pointer;
 
         img:hover {
-          filter: invert(54%) sepia(28%) saturate(6865%) hue-rotate(338deg) brightness(98%) contrast(94%);;
+          filter: invert(54%) sepia(28%) saturate(6865%) hue-rotate(338deg)
+            brightness(98%) contrast(94%);
         }
       }
     }
   }
-
+  .one {
+    transform: translateY(100%);
+    &.show {
+      transform: translateY(0%) !important;
+    }
+  }
+  .two {
+    transform: translateY(-130%);
+    &.show {
+      transform: translateY(0%) !important;
+    }
+  }
   .ul {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     color: white;
     li:not(:last-child) {
       margin-bottom: 1em;
     }
     li {
-
-
       &:hover {
         cursor: pointer;
         font-weight: 100 !important;
         color: $buttons;
       }
     }
-
   }
 
   .form {
     display: flex;
     flex-direction: row;
     height: fit-content;
-    
+    transform: translateX(150%);
+    &.show {
+      transform:  translateX(0%);
+    }
+
     span {
       position: absolute;
       left: 16px;
@@ -599,7 +611,6 @@ footer {
       z-index: 1;
       position: relative;
     }
-
 
     button {
       width: 70px;
@@ -631,7 +642,7 @@ footer {
       grid-template-columns: unset;
       grid-template-rows: repeat(2, 1fr);
       gap: 0em !important;
-      
+
       h1 {
         font-size: 2.1em;
       }
@@ -640,15 +651,17 @@ footer {
         width: 100px;
         margin: 0 auto;
       }
-  }}
+    }
+  }
 
   footer {
     height: fit-content;
     .section {
       grid-template-columns: unset;
-      grid-template-areas: "form form"
-                            "ul2 ul1"
-                            "icons icons";
+      grid-template-areas:
+        "form form"
+        "ul2 ul1"
+        "icons icons";
       gap: 3em;
       justify-content: center;
 
@@ -681,4 +694,4 @@ footer {
       }
     }
   }
-} 
+}

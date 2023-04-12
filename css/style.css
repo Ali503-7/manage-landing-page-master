@@ -20,12 +20,12 @@ h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.1;
   margin-top: 0;
-  color: hsl(228deg, 39%, 23%);
+  color: hsl(228, 39%, 23%);
 }
 
 p, span {
   margin-top: 0;
-  color: hsl(227deg, 12%, 61%);
+  color: hsl(227, 12%, 61%);
   letter-spacing: 0.041em;
   line-height: 1.5;
 }
@@ -40,17 +40,6 @@ ul {
   padding: 0;
 }
 
-@-webkit-keyframes F_top {
-  from {
-    top: -200px;
-    position: absolute;
-  }
-  to {
-    top: 0px;
-    position: relative;
-  }
-}
-
 @keyframes F_top {
   from {
     top: -200px;
@@ -58,16 +47,6 @@ ul {
   }
   to {
     top: 0px;
-    position: relative;
-  }
-}
-@-webkit-keyframes F-right {
-  0% {
-    left: -900px;
-    position: relative;
-  }
-  100% {
-    left: 0px;
     position: relative;
   }
 }
@@ -81,16 +60,6 @@ ul {
     position: relative;
   }
 }
-@-webkit-keyframes F-left {
-  0% {
-    right: -900px;
-    position: relative;
-  }
-  100% {
-    right: 0px;
-    position: relative;
-  }
-}
 @keyframes F-left {
   0% {
     right: -900px;
@@ -98,16 +67,6 @@ ul {
   }
   100% {
     right: 0px;
-    position: relative;
-  }
-}
-@-webkit-keyframes F-bottom {
-  0% {
-    bottom: -900px;
-    position: relative;
-  }
-  100% {
-    bottom: 0px;
     position: relative;
   }
 }
@@ -128,14 +87,14 @@ footer .section, .Fu-sec .contaner, .S-sec, .F-sec .contaner, header .contaner {
 }
 
 footer .form button, .T-sec .button button, .F-sec .contaner .text button, header .contaner button {
-  background-color: hsl(12deg, 88%, 59%);
+  background-color: hsl(12, 88%, 59%);
   color: white;
   border: none;
   outline: none;
   height: 50px;
   width: calc(38% + 50px);
   border-radius: 50px;
-  box-shadow: hsl(12deg, 63%, 87%) 0px 5px 10px 2px;
+  box-shadow: hsl(12, 63%, 87%) 0px 5px 10px 2px;
   cursor: pointer;
 }
 footer .form button:hover, .T-sec .button button:hover, .F-sec .contaner .text button:hover, header .contaner button:hover {
@@ -159,11 +118,13 @@ footer .form button:hover, .T-sec .button button:hover, .F-sec .contaner .text b
 }
 
 header .contaner {
+  margin: 40px auto !important;
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 1em;
   align-items: center;
   width: 100%;
+  margin-top: 30px;
 }
 header .contaner ul {
   display: grid;
@@ -174,10 +135,9 @@ header .contaner ul {
 }
 header .contaner ul li {
   font-size: smaller;
-  color: hsl(228deg, 39%, 23%);
+  color: hsl(228, 39%, 23%);
   cursor: pointer;
   position: relative;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -187,7 +147,7 @@ header .contaner ul li::before {
   width: 100%;
   height: 1px;
   bottom: -3px;
-  background-color: hsl(12deg, 88%, 59%);
+  background-color: hsl(12, 88%, 59%);
   left: 0;
   transition: 0.3s ease-in;
   transform: scaleX(0);
@@ -202,7 +162,8 @@ header .contaner button {
 header .contaner .header-mobile {
   display: none;
 }
-header .contaner .header-mobile .close, header .contaner .header-mobile .open {
+header .contaner .header-mobile .close,
+header .contaner .header-mobile .open {
   cursor: pointer;
 }
 header .contaner .header-mobile .close {
@@ -229,7 +190,6 @@ header .contaner .header-mobile ul {
   flex-direction: column;
 }
 header .contaner .header-mobile ul li {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -261,16 +221,14 @@ header .contaner .header-mobile ul li {
 .F-sec .contaner .text {
   height: 80%;
   width: 100%;
-  -webkit-animation: F-right 1s ease-in-out;
-          animation: F-right 1s ease-in-out;
+  animation: F-right 1s ease-in-out;
   display: grid;
 }
 .F-sec .contaner .text button {
   width: 30%;
 }
 .F-sec .contaner img {
-  -webkit-animation: F-left 1s ease-in-out;
-          animation: F-left 1s ease-in-out;
+  animation: F-left 1s ease-in-out;
   width: 600px;
 }
 
@@ -304,6 +262,12 @@ header .contaner .header-mobile ul li {
   grid-template-columns: repeat(2, 1fr);
   gap: 5em;
 }
+.S-sec .contaner .left {
+  transform: translateX(-150%);
+}
+.S-sec .contaner .left.show {
+  transform: translateX(0%) !important;
+}
 .S-sec .contaner .left h1 {
   font-size: 2.5em !important;
   margin-bottom: 1em;
@@ -311,6 +275,10 @@ header .contaner .header-mobile ul li {
 .S-sec .contaner .right {
   display: grid;
   gap: 3em;
+  transform: translateX(150%);
+}
+.S-sec .contaner .right.show {
+  transform: translateX(0%) !important;
 }
 .S-sec .contaner .right .box {
   display: grid;
@@ -318,7 +286,7 @@ header .contaner .header-mobile ul li {
   gap: 1em;
 }
 .S-sec .contaner .right .box span {
-  background-color: hsl(12deg, 88%, 59%);
+  background-color: hsl(12, 88%, 59%);
   border-radius: 50px;
   color: white;
   width: 70px;
@@ -382,7 +350,7 @@ header .contaner .header-mobile ul li {
   display: grid;
   grid-template-rows: repeat(3, auto);
   gap: 0.5em;
-  background-color: hsl(0deg, 0%, 98%);
+  background-color: hsl(0, 0%, 98%);
   max-width: 500px;
   align-content: center;
   justify-items: center;
@@ -400,7 +368,7 @@ header .contaner .header-mobile ul li {
 .T-sec .contaner .box h5 {
   font-size: 16px;
   font-weight: 500;
-  color: hsl(228deg, 39%, 23%);
+  color: hsl(228, 39%, 23%);
 }
 .T-sec .contaner .box p {
   text-align: center;
@@ -450,17 +418,17 @@ header .contaner .header-mobile ul li {
   }
 }
 .splide__pagination__page:not(.is-active) {
-  border: solid 1px hsl(12deg, 88%, 59%) !important;
+  border: solid 1px hsl(12, 88%, 59%) !important;
   background-color: white;
 }
 
 .splide__pagination__page.is-active {
-  background: hsl(12deg, 88%, 59%) !important;
+  background: hsl(12, 88%, 59%) !important;
   transform: unset !important;
 }
 
 .Fu-sec {
-  background-color: hsl(12deg, 88%, 59%);
+  background-color: hsl(12, 88%, 59%);
   position: relative;
   height: 250px;
   display: flex;
@@ -473,23 +441,36 @@ header .contaner .header-mobile ul li {
   gap: 3em;
   align-items: center;
 }
-.Fu-sec .contaner h1 {
+.Fu-sec .contaner .h1 {
+  transform: translateY(-250%);
+}
+.Fu-sec .contaner .h1 h1 {
   color: white;
   font-size: 2.5em;
   font-weight: 500;
 }
-.Fu-sec .contaner button {
-  width: 28.5714285714%;
+.Fu-sec .contaner .h1.show {
+  transform: translateY(0%) !important;
+}
+.Fu-sec .contaner .button {
+  margin-left: 50%;
+  transform: translateY(300%);
+}
+.Fu-sec .contaner .button button {
+  width: 150px;
   justify-self: end;
   height: 50px;
   border-radius: 50px;
   border: none;
   outline: none;
-  color: hsl(12deg, 88%, 59%);
+  color: hsl(12, 88%, 59%);
   font-weight: 600;
   cursor: pointer;
 }
-.Fu-sec .contaner button:hover {
+.Fu-sec .contaner .button.show {
+  transform: translateY(0%) !important;
+}
+.Fu-sec .contaner .button:hover {
   opacity: 0.7;
 }
 .Fu-sec .imgs {
@@ -529,6 +510,10 @@ footer .section .icons {
   justify-content: space-between;
   align-items: center;
   height: 120px;
+  transform: translateX(-100%);
+}
+footer .section .icons.show {
+  transform: translateX(0%) !important;
 }
 footer .section .icons .social {
   display: flex;
@@ -538,6 +523,18 @@ footer .section .icons .social {
 }
 footer .section .icons .social img:hover {
   filter: invert(54%) sepia(28%) saturate(6865%) hue-rotate(338deg) brightness(98%) contrast(94%);
+}
+footer .one {
+  transform: translateY(100%);
+}
+footer .one.show {
+  transform: translateY(0%) !important;
+}
+footer .two {
+  transform: translateY(-130%);
+}
+footer .two.show {
+  transform: translateY(0%) !important;
 }
 footer .ul {
   font-family: "Courier New", Courier, monospace;
@@ -549,25 +546,27 @@ footer .ul li:not(:last-child) {
 footer .ul li:hover {
   cursor: pointer;
   font-weight: 100 !important;
-  color: hsl(12deg, 88%, 59%);
+  color: hsl(12, 88%, 59%);
 }
 footer .form {
   display: flex;
   flex-direction: row;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  transform: translateX(150%);
+}
+footer .form.show {
+  transform: translateX(0%);
 }
 footer .form span {
   position: absolute;
   left: 16px;
   bottom: 0px;
   font-size: 11px;
-  color: hsla(0deg, 100%, 57.5%, 0.97);
+  color: hsla(0, 100%, 57.5%, 0.97);
 }
 footer .form .input {
   position: relative;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   transition: 0s !important;
@@ -604,7 +603,6 @@ footer .R {
 
 @media (max-width: 767px) {
   .Fu-sec {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
@@ -622,7 +620,6 @@ footer .R {
     margin: 0 auto;
   }
   footer {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
